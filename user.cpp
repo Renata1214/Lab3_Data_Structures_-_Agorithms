@@ -50,19 +50,21 @@ template <class C> void fill_front(C & v, int n)
 
 template <class C> void remove_back(C & v)
 {
-    for (int i=0; i < v.size(); i++)
-    {
-    v.pop_back ();
-    cout<< "Item removed" << '\n';
+    bool notempty= true;
+    while (notempty){
+        v.pop_back();
+        if (v.size()==0){notempty=false;}
     }
 }
 
 
 template <class C> void remove_front(C & v)
 {
-    for (int i=0; i < v.size(); i++)
-    {
-    v.pop_front ();
+    bool nempty= true;
+    while (nempty){
+        v.pop_front();
+    if (v.size()==0){
+        nempty=false;}
     }
 }
 
@@ -86,11 +88,8 @@ template <class C> void modify(C & v)
 
 template <class C> void print(C & v)
 {
-    cout << "Size: " << v.size() << '\n'; 
-    for (int i=0; i< v.size(); i++)
-    {
          v.print();
-    }
+         cout<< '\n';
 }
 
 template <class Container> void run(string message, int
@@ -100,27 +99,25 @@ cout <<
 message <<
 '\n';
 Container c;
-cout << "good" << '\n';
 fill_back(c, n); 
-cout << "good" << '\n';
 show(c);
 modify(c); 
 show(c);
 modify(c); 
 show(c);
 modify(c);
-
 show(c);
+//Problem is here
 remove_back(c);
+cout << "Moment of truth" << '\n';
 show(c);
+//Problem is in remove_front and fill_front
 fill_front(c,n); 
 show(c);
-//print(c);
-/*
+print(c);
 remove_front(c);
 show(c);
-cout << '\n';*/
-
+cout << '\n';
 }
 
 
