@@ -10,7 +10,7 @@ Vector::Vector (){
     Objects = new Payload [Capacity];
     VecCounter=0;
     // ++VecCounter;
-        } //Ask how they managed to write born function before declaring it in payload.h
+        } 
 
     Vector:: ~ Vector (){ delete[] Objects;}
 

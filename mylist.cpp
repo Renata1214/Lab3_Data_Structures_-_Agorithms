@@ -2,8 +2,6 @@
 #include "mylist.h"
 #include <iostream>
 
-//Ask whether the names are supposed to be given to the node or to the payload objects.
-
 using std::string;
 using std::cout;
 
@@ -116,10 +114,8 @@ void List::print ()const{
 //Operator
 Payload& List::operator[](int i) {
  Node* iterator = Head_List;
-    for (int j = 0; j < i; j++) {  // Start from j=0 and iterate until j<i
+    for (int j = 0; j < i; j++) {  
         iterator = iterator->next_link;
-        // if (iterator == nullptr) {
-        // }
     }
     return iterator->instance;
 }
