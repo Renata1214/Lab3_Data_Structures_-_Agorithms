@@ -27,6 +27,11 @@ void push_back (const Payload& name);
 void pop_back ();
 //Size
 int size()const;
+
+
+// CAPACITY 
+int capacity ()const;
+
 //Print
 void print () const;
 

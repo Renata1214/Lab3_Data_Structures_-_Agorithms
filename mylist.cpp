@@ -47,28 +47,34 @@ void List::pop_front (){
 //Push Back
 
 void List::push_back (const Payload& name){
-     Node * tale = Head_List;
-    while (tale->next_link!=nullptr){
-        tale=tale ->next_link;
+     if (Head_List == nullptr) {
+        Head_List = new Node(name);
+    } else {
+        Node* tail = Head_List;
+        while (tail->next_link != nullptr) {
+            tail = tail->next_link;
+        }
+        tail->next_link = new Node(name);
     }
-    Node *newNode= new Node (name);
-    tale->next_link=newNode;
 }
 
 //Pop back
 void List::pop_back(){
-    if(Head_List == nullptr){
+   if (Head_List == nullptr) {
         cout << "No elements inside the list" << '\n';
+        return;
+    } else if (Head_List->next_link == nullptr) {
+        delete Head_List;
+        Head_List = nullptr;
+        return;
+    } else {
+        Node* tail = Head_List;
+        while (tail->next_link->next_link != nullptr) {
+            tail = tail->next_link;
+        }
+        delete tail->next_link;
+        tail->next_link = nullptr;
     }
-    else{
-    Node * tale = Head_List;
-   // iterator = Head_List -> next_link;
-    while (tale->next_link->next_link!=nullptr){
-        tale=tale ->next_link;
-    }
-    delete tale->next_link;
-    tale -> next_link = nullptr;}
-
 }
 
 
@@ -83,6 +89,21 @@ int List::size ()const{
     return counter;
 }
 
+
+//ASK ABOUT THIS!!!!!!!!!!!!!!!!!
+int List::capacity ()const{
+    int counter =0;
+    Node * temp = Head_List;
+    while (temp !=nullptr){
+        temp = temp -> next_link;
+        counter ++;
+    }
+    return counter;
+}
+
+
+
+
 //print function
 void List::print ()const{
     Node * temp = Head_List;
@@ -94,12 +115,13 @@ void List::print ()const{
 
 //Operator
 Payload& List::operator[](int i) {
-Node * iterator = Head_List;
-for (int j=0; j<i+1;j++){
-    iterator= iterator ->next_link;
-}
-
-return (iterator->instance);
+ Node* iterator = Head_List;
+    for (int j = 0; j < i; j++) {  // Start from j=0 and iterate until j<i
+        iterator = iterator->next_link;
+        // if (iterator == nullptr) {
+        // }
+    }
+    return iterator->instance;
 }
 
 
