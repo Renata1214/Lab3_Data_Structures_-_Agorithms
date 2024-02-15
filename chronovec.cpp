@@ -65,7 +65,7 @@ template <class C> void modify(C & v)
 int main() {
 
     Vector trial1;
-    int n=10;
+    int n=100000;
 
     // Measure execution time for function1
     auto start1 = std::chrono::steady_clock::now();
@@ -76,6 +76,10 @@ int main() {
 
     // Measure execution time for function2
     auto start2 = std::chrono::steady_clock::now();
+    remove_back(trial1);
+    remove_back(trial1);
+    remove_back(trial1);
+    remove_back(trial1);
     remove_back(trial1);
     auto end2 = std::chrono::steady_clock::now();
     auto duration2 = std::chrono::duration_cast<std::chrono::microseconds>(end2 - start2);

@@ -65,7 +65,7 @@ template <class C> void modify(C & v)
 int main() {
 
     List trial1;
-    int n=10;
+    int n=100000;
 
     // Measure execution time for function1
     auto start1 = std::chrono::steady_clock::now();
