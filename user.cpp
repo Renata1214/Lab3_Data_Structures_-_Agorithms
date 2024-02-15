@@ -154,12 +154,19 @@ v.capacity() << '\n';
 
 List s;
 Vector r;
+Vector e;
  s.push_back("apple");
  s.push_back("pear");
  s.push_back("banana");
  s.push_back("apple1");
  s.push_back("pear1");
 showList(s);
+
+e.push_back("apple");
+ e.push_back("pear");
+ e.push_back("banana");
+ e.push_back("apple1");
+ e.push_back("pear1");
 
 cout << "Proof for empty function" << '\n';
  cout << s.empty()<< '\n';
@@ -179,5 +186,25 @@ cout << "Proof for reverse function" << '\n';
 
 //cout << "I dont know" << '\n';
  cout << find_in <List> (s, "apple") -> name << '\n';
+
+
+ cout << "Proof for empty function" << '\n';
+ cout << e.empty()<< '\n';
+
+ cout << "Proof for front function" << '\n';
+ cout << e.front().name<< '\n';
+
+cout << "Proof for back function" << '\n';
+cout << e.back().name<< '\n';
+
+cout << "Proof for find function" << '\n';
+cout << find_in <Vector> (e, "apple") -> name << '\n';
+
+cout << "Proof for reverse function" << '\n';
+ reverse <List, Vector> (s,r);
+ showVector(r);
+
+//cout << "I dont know" << '\n';
+ cout << find_in <Vector> (e, "apple") -> name << '\n';
 
 }
