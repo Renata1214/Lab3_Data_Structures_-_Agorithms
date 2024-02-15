@@ -35,12 +35,19 @@ void pop_front ();
 //vector Operator Overload.
 Payload& operator[](int i) ;
 
+Payload& operator[](int i) const;
+
 //Vector Size
 int size () const;
 
 int capacity () const ;
 
 void print()const;
+
+//Additional Functions 
+bool empty() const; 
+Payload front() const; 
+Payload back() const;
 
 
 // //Debugging function

@@ -120,4 +120,43 @@ Payload& List::operator[](int i) {
     return iterator->instance;
 }
 
+Payload& List::operator[](int i) const{
+    Node* iterator = Head_List;
+    for (int j = 0; j < i; j++) {  
+        iterator = iterator->next_link;
+    }
+    return iterator->instance;
+}
 
+//Additional Functions 
+bool List::empty() const{
+    bool nempty= 0;
+    if (Head_List==nullptr){
+        nempty = 1;
+    }
+    return nempty;
+}
+
+Payload List::front() const{
+    if (Head_List==nullptr){
+        cout << "No objects inside the list" << '\n';
+        throw "Error";
+    }
+    else {
+        return Head_List->instance;
+    }
+}
+
+Payload List::back() const{
+    if (Head_List==nullptr){
+        cout << "No objects inside the list" << '\n';
+        throw "Error";
+    }
+    else{
+            Node * temp = Head_List;
+            while (temp->next_link!=nullptr){
+              temp = temp -> next_link; 
+            }
+            return temp -> instance;
+    }
+}

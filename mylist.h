@@ -37,4 +37,11 @@ void print () const;
 
 Payload& operator[](int i);
 
+Payload& operator[](int i) const;
+
+//Additional Functions 
+bool empty() const; 
+Payload front() const; 
+Payload back() const;
+
 };

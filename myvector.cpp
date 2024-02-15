@@ -77,6 +77,10 @@ Payload& Vector::operator[](int i){
     return Objects[i];
 }
 
+Payload& Vector::operator[](int i) const{
+    return Objects[i];
+}
+
 //Vector Size
     int Vector::size () const { return VecCounter;};
 //Vector Capacity
@@ -85,4 +89,31 @@ int Vector::capacity () const { return Capacity;}
 void Vector::print()const{
 for(int i=0;i<VecCounter;i++){
     Objects[i].print();}
+}
+
+
+
+//Additional Functions 
+bool Vector::empty() const{
+    bool nempty= 0;
+    if (VecCounter==0){
+        nempty = 1;
+    }
+    return nempty;
+}
+Payload Vector::front() const{
+    if (VecCounter==0){
+        cout << "No objects payload inside the vector" << '\n';
+        throw "error";
+    }
+    else{
+    return Objects[0];}
+}
+Payload Vector::back() const{
+     if (VecCounter==0){
+        cout << "No objects payload inside the vector" << '\n';
+        throw "error";
+    }
+    else{
+    return Objects[VecCounter-1];}
 }
